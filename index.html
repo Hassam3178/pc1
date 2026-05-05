@@ -1,3 +1,110 @@
-<div>
-    hello
-</div>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assignment 2 - Modern Product Gallery</title>
+  <!-- Added Google Fonts for a modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dark-theme">
+  <!-- Glassmorphism Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top custom-navbar shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">
+        <span class="brand-highlight">Nova</span>Gallery
+      </a>
+      <button
+        class="navbar-toggler custom-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#gallerySection">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link nav-btn" href="#formSection">Add Product</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="py-5 mt-5">
+    <div class="container">
+      
+      <!-- Gallery Section -->
+      <section id="gallerySection" class="mb-5 fade-in">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
+          <div>
+            <p class="text-accent mb-1 fw-semibold">DISCOVER</p>
+            <h1 class="display-6 fw-bold mb-0">Interactive Catalog</h1>
+          </div>
+          <button id="loadSampleBtn" type="button" class="btn btn-glow-primary px-4 py-2">
+            Load Sample Data
+          </button>
+        </div>
+
+        <div id="loadingAlert" class="alert d-none custom-alert" role="alert"></div>
+
+        <div id="productGallery" class="row g-4"></div>
+      </section>
+
+      <!-- Form Section -->
+      <section id="formSection" class="mt-5 fade-in">
+        <div class="card custom-form-card shadow-lg border-0">
+          <div class="card-body p-5">
+            <div class="mb-4">
+              <h2 class="h3 fw-bold mb-1">Add New Product</h2>
+              <p class="text-muted">Fill out the details below to expand your catalog.</p>
+            </div>
+            
+            <form id="productForm" class="row g-4 needs-validation" novalidate>
+              <div class="col-12 col-md-6">
+                <label for="productName" class="form-label fw-medium">Product Name</label>
+                <input type="text" class="form-control custom-input" id="productName" required minlength="2" placeholder="e.g. Mechanical Keyboard" />
+                <div class="invalid-feedback">Please enter a product name (at least 2 characters).</div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="productPrice" class="form-label fw-medium">Price (USD)</label>
+                <input type="number" class="form-control custom-input" id="productPrice" min="0.01" step="0.01" required placeholder="0.00" />
+                <div class="invalid-feedback">Please enter a valid price greater than 0.</div>
+              </div>
+
+              <div class="col-12">
+                <label for="productDescription" class="form-label fw-medium">Description</label>
+                <textarea
+                  class="form-control custom-input"
+                  id="productDescription"
+                  rows="4"
+                  minlength="10"
+                  required
+                  placeholder="Describe the product's features and details..."
+                ></textarea>
+                <div class="invalid-feedback">Please enter a description (at least 10 characters).</div>
+              </div>
+
+              <div class="col-12 pt-2">
+                <button type="submit" class="btn btn-glow-success w-100 py-3 fw-bold">Publish Product</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

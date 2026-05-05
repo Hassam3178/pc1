@@ -1,0 +1,186 @@
+/* Core Styling & Typography */
+:root {
+  --bg-color: #0b0f19;
+  --surface-color: #131b2f;
+  --surface-hover: #1a233a;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --accent-blue: #3b82f6;
+  --accent-blue-glow: rgba(59, 130, 246, 0.4);
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+  --border-color: #1e293b;
+}
+
+body.dark-theme {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Glassmorphism Navbar */
+.custom-navbar {
+  background: rgba(11, 15, 25, 0.8) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-brand {
+  color: var(--text-main) !important;
+  font-size: 1.5rem;
+}
+
+.brand-highlight {
+  color: var(--accent-blue);
+}
+
+.nav-link {
+  color: var(--text-muted) !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--text-main) !important;
+}
+
+.nav-btn {
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 8px;
+  color: var(--accent-blue) !important;
+  padding: 0.5rem 1rem !important;
+  margin-left: 1rem;
+}
+
+/* Typography & Utilities */
+.text-accent { color: var(--accent-blue); letter-spacing: 2px; font-size: 0.85rem; }
+.text-secondary { color: var(--text-muted) !important; }
+
+/* Custom Inputs */
+.custom-input {
+  background-color: var(--bg-color) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+  border-color: var(--accent-blue) !important;
+  box-shadow: 0 0 0 4px var(--accent-blue-glow) !important;
+}
+
+.custom-input::placeholder { color: #475569; }
+
+/* Custom Buttons */
+.btn-glow-primary {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-glow-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--accent-blue-glow);
+  color: white;
+}
+
+.btn-glow-success {
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-glow-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+  color: white;
+}
+
+/* Card Overrides (Targets JS injected classes too) */
+.card {
+  background-color: var(--surface-color) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#productGallery .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+  border-color: #334155 !important;
+}
+
+.product-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-color);
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+#productGallery .card:hover .product-image {
+  opacity: 1;
+}
+
+.price-badge {
+  background: rgba(16, 185, 129, 0.1) !important;
+  color: var(--accent-green) !important;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+}
+
+.card-text {
+  min-height: 72px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Form Card Specific */
+.custom-form-card {
+  background: radial-gradient(circle at top right, var(--surface-hover), var(--surface-color)) !important;
+}
+
+/* Alerts */
+.custom-alert {
+  background-color: var(--surface-hover);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  border-radius: 12px;
+}
+
+/* JS Injected Buttons */
+.btn-primary.btn-sm {
+  background-color: var(--accent-blue);
+  border: none;
+  border-radius: 6px;
+}
+
+.btn-outline-danger.btn-sm {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+  border-radius: 6px;
+}
+
+.btn-outline-danger.btn-sm:hover {
+  background-color: var(--accent-red);
+  color: white;
+}
+
+/* Simple Animation */
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
